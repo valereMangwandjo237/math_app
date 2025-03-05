@@ -65,7 +65,7 @@ def predict(data):
 
 
 def front_iris():
-    st.markdown("<h1 style='text-align: center;'>PREDICTION DU TYPE DE FLEUR D'IRIS</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>PREDICTION DU TYPE DE REPONSE</h1>", unsafe_allow_html=True)
 
     col1, col2 = st.columns([1, 3])  # Colonne 1 pour la navbar (1/4), Colonne 2 pour le contenu (3/4)
     # Navbar verticale dans la colonne de gauche
@@ -74,26 +74,25 @@ def front_iris():
     col1, col2 = st.columns(2)
 
     with col1:
-        sepal_length = st.slider("Longueur du sépal", 0.0, 10.0, value=0.0, step=0.1)
         countries = [country.name for country in pycountry.countries]
         # Liste déroulante pour sélectionner un pays
         selected_country = st.selectbox("Choisissez un pays :", countries)
 
     with col2:
-        sepal_width = st.slider("Largeur du sépal", 0.0, 10.0, value=0.0, step=0.1)
+        question_level = st.radio("Niveau de question :", ("Basic", "Level"))
 
     # Deuxième ligne avec deux autres curseurs
     col3, col4 = st.columns(2)
 
     with col3:
-        petal_length = st.slider("Longueur du pétale", 0.0, 10.0, value=0.0, step=0.1)
+        topic = st.selectbox("Choisissez votre topic :", ("Linear Algebra", "Fundamental Mathematics", "Differentiation", "Differential Equations"))
 
     with col4:
-        petal_width = st.slider("Largeur du pétale", 0.0, 10.0, value=0.0, step=0.1)
+        sub_topic = st.selectbox("Choisissez votre sub_topic :", ("Probability", "Graph Theory", "Complex Numbers", "Elementary Geometry"))
 
 
     # Bouton pour envoyer les données à l'API
-    if st.button("Prédire la fleur...", help="Cliquez pour envoyer les données", type="primary"):
+    if st.button("Prédire le type de question...", type="primary"):
         data = {
             "sepal_length": sepal_length,
             "sepal_width": sepal_width,
