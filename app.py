@@ -114,9 +114,9 @@ def front_iris():
             st.image("images/versicolor.jpg", width=300)
 
 
-my_data = "iris.csv"
+my_data = "data.csv"
 def explore_data(dataset):
-    df = pd.read_csv(os.path.join(dataset), sep=";")
+    df = pd.read_csv(os.path.join(dataset), sep=";", encoding='ISO-8859-1')
     return df
 
 if selected == "Acceuil":
@@ -134,7 +134,6 @@ if selected == "Acceuil":
 
 if selected == "EDA":
     st.title("EDA")
-    st.title("Iris EDA")
     data = explore_data(my_data)
     if st.checkbox("Preview Data"):
         
@@ -165,7 +164,7 @@ if selected == "EDA":
         st.write(data.describe())
 
     if st.checkbox("percentage of distributions"):
-        effectif = data["Species"].value_counts()
+        effectif = data["Type_of_Answer"].value_counts()
         fig, ax = plt.subplots()
         st.write(plt.pie(effectif, labels=effectif.index, autopct='%1.2f%%'))
         plt.title("Répartition des modalités")
@@ -174,7 +173,8 @@ if selected == "EDA":
     
     if st.checkbox("Visualization"):
         fig, ax = plt.subplots()
-        st.write(sns.scatterplot(data=data, x="PetalLength", y="PetalWidth", hue="Species", s=100))
+        st.write(sns.countplot(x='Question_Level', hue='Type_of_Answer', data=data))
+        st.write(sns.countplot(x='Student_Country', hue='Type_of_Answer', data=data))
         st.pyplot(fig)
 
     if st.checkbox("Correlation"):
