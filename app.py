@@ -93,7 +93,7 @@ def front_iris():
     commentaire = st.text_area("Écrivez votre question ici :", "")
 
     # Bouton pour envoyer les données à l'API
-    if st.button("Prédire le type de question...", type="primary"):
+    if st.button("Prédire le type de reponse...", type="primary"):
         data = {
             "sepal_length": sepal_length,
             "sepal_width": sepal_width,
