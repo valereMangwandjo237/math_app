@@ -177,13 +177,6 @@ if selected == "EDA":
         st.write(sns.countplot(x='Student_Country', hue='Type_of_Answer', data=data))
         st.pyplot(fig)
 
-    if st.checkbox("Correlation"):
-        fig, ax = plt.subplots()
-        data_x = data.drop(columns="Species", axis=1)
-        corr_matrix = data_x.corr()
-        st.write(sns.heatmap(corr_matrix, annot=True, linewidths=.5,))
-        st.pyplot(fig)
-
 
 
 
