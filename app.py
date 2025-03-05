@@ -94,7 +94,7 @@ def front_iris():
 
     # Bouton pour envoyer les données à l'API
     if st.button("Prédire le type de reponse...", type="primary"):
-        
+        st.write("prediction...")
 
 
 my_data = "data.csv"
