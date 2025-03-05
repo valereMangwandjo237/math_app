@@ -74,6 +74,9 @@ def front_iris():
 
     with col1:
         sepal_length = st.slider("Longueur du sépal", 0.0, 10.0, value=0.0, step=0.1)
+        countries = [country.name for country in pycountry.countries]
+        # Liste déroulante pour sélectionner un pays
+        selected_country = st.selectbox("Choisissez un pays :", countries)
 
     with col2:
         sepal_width = st.slider("Largeur du sépal", 0.0, 10.0, value=0.0, step=0.1)
