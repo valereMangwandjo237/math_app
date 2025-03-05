@@ -14,7 +14,7 @@ col1, col2 = st.columns([1, 3])  # Colonne 1 pour la navbar (1/4), Colonne 2 pou
 with st.sidebar:
     selected = option_menu(
         menu_title = "Main menu",
-        options = ["Acceuil", "EDA", "Prediction", "Contact"],
+        options = ["Acceuil", "EDA", "Predictions", "Contact"],
         icons = ["house","graph-up-arrow", "database", "envelope"],
         menu_icon = "cast",
         default_index = 0,
