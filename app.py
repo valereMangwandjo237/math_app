@@ -164,7 +164,7 @@ if selected == "EDA":
         st.write(data.describe())
 
     if st.checkbox("percentage of distributions"):
-        effectif = data["Type_of_Answer"].value_counts()
+        effectif = data["Type of Answer"].value_counts()
         fig, ax = plt.subplots()
         st.write(plt.pie(effectif, labels=effectif.index, autopct='%1.2f%%'))
         plt.title("Répartition des modalités")
@@ -173,8 +173,8 @@ if selected == "EDA":
     
     if st.checkbox("Visualization"):
         fig, ax = plt.subplots()
-        st.write(sns.countplot(x='Question_Level', hue='Type_of_Answer', data=data))
-        st.write(sns.countplot(x='Student_Country', hue='Type_of_Answer', data=data))
+        st.write(sns.countplot(x='Question Level', hue='Type of Answer', data=data))
+        st.write(sns.countplot(x='Student Country', hue='Type of Answer', data=data))
         st.pyplot(fig)
 
 
