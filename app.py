@@ -94,25 +94,7 @@ def front_iris():
 
     # Bouton pour envoyer les données à l'API
     if st.button("Prédire le type de reponse...", type="primary"):
-        data = {
-            "sepal_length": sepal_length,
-            "sepal_width": sepal_width,
-            "petal_length": petal_length,
-            "petal_width": petal_width
-        }
         
-        # Envoyer les données à l'API
-        response = predict(data)
-        #model, sca = load_model()
-        
-        # Afficher la réponse de l'API
-        st.write("<p style='font-size: 20px; font-weight: bold;'>Votre fleur semble être : <span style='color: #ff4b4b;'>", response , "</span></p>", unsafe_allow_html=True)
-        if response == "setosa":
-            st.image("images/setosa.jpg", width=300)
-        elif response == "virginica":
-            st.image("images/verginca.jpg", width=300)
-        else:
-            st.image("images/versicolor.jpg", width=300)
 
 
 my_data = "data.csv"
