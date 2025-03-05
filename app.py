@@ -172,7 +172,7 @@ if selected == "EDA":
         st.pyplot(fig)
     
     if st.checkbox("Visualization"):
-        fig, ax = plt.subplots(12, 8)
+        st.write(plt.figure(figsize=(13, 6)))
         st.write(sns.countplot(x='Question Level', hue='Type of Answer', data=data))
         st.write(sns.countplot(x='Student Country', hue='Type of Answer', data=data))
         st.pyplot(fig)
