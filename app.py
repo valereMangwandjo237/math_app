@@ -226,7 +226,7 @@ if selected == "EDA":
 
 
 
-if selected == "Predictions Iris":
+if selected == "Predictions":
     front_iris()
     
 if selected == "Contact":
