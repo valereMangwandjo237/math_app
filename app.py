@@ -121,7 +121,7 @@ if selected == "Acceuil":
     texte_a_afficher = """<div style="text-align: justify;">
     Je suis <b>MABOM VALERE</b>, élève professeur à l'Ecole Nomarle Supérieure de Yaounde filière <i>'informatique'</i>.
     Je suis également en fin d'étude à l'Ecole Nationale Supérieure de Yaoundé dans la filiere <i>Intelligence Artificielle</i>.
-    J'ai réalisé ce petit projet, pour aider l'utilisateur à prédire les type de fleurs d'iris en fonction des differents parametres.
+    J'ai réalisé ce petit projet, pour aider l'utilisateur à prédire les type de données en fonction des differents parametres.
     Vous pouvez me donner des suggestions ou remarques dans la rubrique <b>Contact</b> du menu en dessous.
     Merci...
     </div>"""
@@ -130,7 +130,7 @@ if selected == "Acceuil":
     st.markdown(texte_a_afficher, unsafe_allow_html=True)
 
 if selected == "EDA":
-    st.title("Iris EDA")
+    st.title("EDA")
     # Fonction de chargement du fichier
 @st.cache_data
 def load_data(file):
@@ -179,7 +179,7 @@ def clean_data(df, missing_threshold=0.6):
     return df_cleaned
 
 # Interface Streamlit
-st.title("🧮 Prétraitement du MathE Dataset")
+st.title("Prétraitement du MathE Dataset")
 st.write("Téléchargez un fichier de données et effectuez son prétraitement.")
 
 # Upload du fichier
@@ -194,12 +194,12 @@ if uploaded_file is not None:
         st.dataframe(df.head())
 
         # Affichage des informations générales
-        st.write("📊 Informations générales sur le dataset :")
+        st.write("Informations générales sur le dataset :")
         buffer = df.info(buf=None)
         st.text(buffer)
 
         # Affichage des valeurs manquantes
-        st.write("❗ Valeurs manquantes par colonne :")
+        st.write("Valeurs manquantes par colonne :")
         missing_values = df.isnull().sum()
         st.write(missing_values[missing_values > 0])
 
@@ -208,12 +208,12 @@ if uploaded_file is not None:
         cleaned_df = clean_data(df)
 
         if cleaned_df is not None:
-            st.write("✅ Données nettoyées et transformées")
+            st.write("Données nettoyées et transformées")
             st.dataframe(cleaned_df.head())
 
             # Télécharger le fichier nettoyé
             csv = cleaned_df.to_csv(index=False).encode('utf-8')
-            st.download_button(label="⬇ Télécharger les données prétraitées",
+            st.download_button(label="Télécharger les données prétraitées",
                                data=csv,
                                file_name="MathE_dataset_cleaned.csv",
                                mime="text/csv")
