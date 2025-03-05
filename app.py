@@ -89,7 +89,8 @@ def front_iris():
 
     with col4:
         sub_topic = st.selectbox("Choisissez votre sub_topic :", ("Probability", "Graph Theory", "Complex Numbers", "Elementary Geometry"))
-
+        
+    commentaire = st.text_area("Écrivez votre question ici :", "")
 
     # Bouton pour envoyer les données à l'API
     if st.button("Prédire le type de question...", type="primary"):
